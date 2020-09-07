@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Predicitons based on tweepy module</title>
+		
+	</head>
+	<body>
+		<form action="" method="post">
+			{% csrf_token %}
+
+			{% for x in arr_pred %}
+				{{ x }}<br>
+			{% endfor %}
+			<p>
+			{% for x in arr_pos_txt %}
+				{{ x }}<br>
+			{% endfor %}
+			</p>
+			<p>
+			{% for y in arr_neg_txt %}
+				{{ y }}<br>
+			{% endfor %}
+			</p>
+		</form>
+	</body>
+</html>

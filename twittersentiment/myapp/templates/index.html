@@ -1,0 +1,9 @@
+<html>
+	<body>
+		<form action="hit" method="post">
+			{% csrf_token %}
+			{{ ff.as_p }}<br>
+			<button type="submit">Predict</button>
+		</form>
+	</body>
+</html>
