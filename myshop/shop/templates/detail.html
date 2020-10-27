@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block content %}
+
+<div id="sidebar" style="padding-left:0px">
+        <h3>Categories</h3>
+        <ul>
+            
+        {% for c in categories %}
+            <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+	
+	
+    <div class="product-detail">
+        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+        <h1>{{ product.name }}</h1>
+		<br />
+		<br />
+        <!--<h2><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>-->
+        <p class="price">${{ product.price }}</p>
+		<div style="padding-left:260px">
+        <form action="" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+            <input type="submit" value="Add to cart">
+        </form>
+		</div>
+		
+       <!-- <p><b>Description:</b>{{ product.description|linebreaks }}</p>-->
+	   <div class="panel panel-default" style="width:500px;margin-top:50px;margin-left:300px">
+            <div class="panel-heading" style="text-align:left">Description</div>
+             <div class="panel-body" style="height:100px">{{ product.description|linebreaks }}</div>
+       </div>
+	   
+    </div>
+{% endblock %}
+
+        
+        
+        

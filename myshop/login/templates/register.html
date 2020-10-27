@@ -1,0 +1,23 @@
+
+{% block content %}
+       
+		
+		<div style="width:300px;height:200px;margin-left:350px;">
+		<h2 style="width:300px;height:40px;background-color:gray;font-family:stencil;font-size:25px;padding-top:15px"><center>Register</center></h2>
+		<form action='{% url "mylogin:register" %}' method='post'> {% csrf_token %}
+		
+		<table border=0>
+		<tr height=50px><td>Username: </td> <td> <input type="text" name="username" /></td></tr>
+		
+		<tr height=50px><td>Email-ID:</td>   <td><input type="email" name="email" /></td></tr>
+		<tr height=50px><td>Password:</td>  <td><input type="password" name="password1" /></td></tr>
+		<tr height=50px><td>Confirm Password:</td>  <td><input type="password" name="password2" /></td></tr>
+		
+		</table><br><br>
+		<input type='submit' value='Register' />
+		
+		</form>
+		
+		</div>
+     
+{% endblock %}	 

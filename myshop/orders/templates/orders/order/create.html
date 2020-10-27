@@ -1,0 +1,37 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+    Checkout
+{% endblock %}
+
+{% block content %}
+    <h1>Checkout</h1>
+    
+    <div class="order-info">
+        <h3>Order summary</h3>
+        <ul>
+            
+                Order subtotal <span>${{cart.get_total_price }}</span>
+            
+        </ul>
+		<hr>
+		<ul>
+            
+               Shipping Charges <span>$0.00</span>
+            
+        </ul>
+		<hr>
+		<ul>
+            
+                Discount <span>$0.00</span>
+            
+        </ul>
+        <p>Total: ${{ cart.get_total_price }}</p>
+    </div>
+    
+    <form action="." method="post" class="order-form">
+        {{ form.as_p }}
+        <p><input type="submit" value="Place order"></p>
+        {% csrf_token %}
+    </form>
+{% endblock %}
